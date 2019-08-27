@@ -1,0 +1,41 @@
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Entregador</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="_css/esqueceu_style.css" />
+    <link rel="icon" href="_imagens/logo_icone.jpg" type="image/x-icon" />
+    <script src="_javascript/esqueceu.js"></script>
+    <script src="jquery-3.3.1.js"></script>
+</head>
+
+<body>
+<div class="container-fluid" style="position: fixed" id="digitar">
+    <div class="row-fluid d-flex justify-content-center ">
+        <div class="col-xs-1 text-center" id="login" >
+            <div id="formEsqueceu">
+                <div class="form-group" >
+                    <h1 id="titulo">Solicitar troca de Senha</h1>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite o email" required>
+                    <input type="button" class="form-control" id="submit" value="Enviar" onclick="sendEmail()">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+<div id="carregando"class="container flex">
+    <p>Enviando E-mail,aguarde!</p>
+    <img id="gif"  src="_imagens/gif-carregando.gif" alt="carregandogif">
+    <p><span>*Por favor, não atualize a página ou dados serão perdidos!</span></p>
+</div>
+</html>

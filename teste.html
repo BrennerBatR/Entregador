@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Language" content="pt-br">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="_css/cadastrar_empresa_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="icon" href="_imagens/logo_icone.jpg" type="image/x-icon"/>
+    <script src="jquery-3.3.1.js"></script>
+    <script src="_javascript/cadastrar_empresa.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <script src="node_modules/moment/moment.js"></script>
+
+
+    <title>Entregador</title>
+
+</head>
+
+<body onload="verificatela()">
+
+<div class="wrapper">
+    <script>
+        setInterval(function () {
+            let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkVXNlciI6MTM1LCJjcGYiOiI5OTk5OTk5OTk5OSIsIm5vbWUiOiJCcmVubmVyIiwiZGF0YU5hc2MiOiIxOTAwLTAxLTAxVDAzOjA2OjI4LjAwMFoiLCJjZWx1bGFyIjoiKDMxKSA5OTk5OS05OTk5IiwiZW1haWwiOiJicmVubmVyLmJhdGlzdGFAb3V0bG9vay5jb20iLCJhY3RpdmUiOjEsImNhdGVnb3JpYSI6NH0sImlhdCI6MTU2MTE0NDA5NywiZXhwIjoxNTYxMTYyMDk3fQ.h22HIQhjCttMqAH9B8xrlT0JpkzaRbuuf7oppN-uW-M';
+            let dataatual = moment().format('YYYY-MM-DD');
+            let url = sessionStorage.getItem("url");
+            $.ajax({
+                type: 'GET',
+                url: url + '/count_pedidos/0/' + dataatual,
+                headers: {
+                    "token": token,
+                },
+                success: function (data) {
+                    let num = data.qtd;
+                    document.getElementById("num_pedidos").innerHTML = num;
+                    document.getElementById("num_pedidos").name = num;
+                    var pedidosTotal = document.getElementById("pedidosNum");
+                    if (pedidosTotal !== undefined && pedidosTotal !== null) {
+                        var numStr = '';
+                        num = num.toString();
+                        if (num.length === 1)
+                            numStr = "00" + num;
+                        else if (num.length === 2)
+                            numStr = "0" + num;
+                        else
+                            numStr = num;
+                        pedidosTotal.innerHTML = "Nº PEDIDOS: " + numStr;
+                        // document.getElementById("num_pedidos").name = data[1];
+                    }
+
+                }
+            });
+        }, 3000); //d
+    </script>
+
+    <nav id="sidebar" class="active">
+        <div class="sidebar-header">
+            <img id="logo" src="_imagens/logo.jpg">
+        </div>
+
+        <ul class="list-unstyled components">
+            <!-- <p>Dummy Heading</p> -->
+            <li>
+                <a href="principal.php">Página inicial</a>
+            </li>
+            <li>
+                <a href="#itensSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Meus
+                    Itens</a>
+                <ul class="collapse " id="itensSubmenu">
+                    <li>
+                        <a href="ver_produtos.php">Ver/Editar Itens</a>
+                    </li>
+                    <li>
+                        <a href="cadastrar_item.php">Cadastrar novo item</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="#pedidosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pedidos
+                    <span id="num_pedidos"></span></a>
+
+                <ul class="collapse" id="pedidosSubmenu">
+                    <li>
+                        <a href="pedidos.php">Pedidos em aberto</a>
+                    </li>
+                    <li>
+                        <a href="pedidos_fechados.php">Pedidos fechados</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#userSubmedu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuários</a>
+
+                <ul class="collapse" id="userSubmedu">
+                    <li>
+                        <a href="cadastrar_usuario.php">Cadastrar Usuário</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="#configSubmedu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configurações </a>
+
+                <ul class="collapse" id="configSubmedu">
+                    <li>
+                        <a href="configuracao_empresa.php">Configuração da Empresa</a>
+                    </li>
+                    <li>
+                        <a href="cadastrar_horario.php">Cadastrar Horário</a>
+                    </li>
+                    <li>
+                        <a href="editar_horario.php">Editar Horário</a>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+            <li>
+                <p>Empresa IHC</p>
+            </li>
+            <li>
+                <a href="_PHP/Desconectar.php" class="article">Sair</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    <div class="content" id="corpo">
+        <div class="row" id="teto">
+            <button onclick="oculta_div()" type="button" id="sidebarCollapse">
+                <img src="_imagens/menu.png" title="Menu">
+            </button>
+            <!-- <h1 id="tetoh1"> Meus itens</h1> -->
+        </div>
+
+        <div id="carregando" class="container flex">
+            <p>Carregando dados Sr(a). Brenner,aguarde!</p>
+            <img id="gif" src="_imagens/gif-carregando.gif" alt="carregandogif">
+            <p><span>*Por favor, não atualize a página ou dados serão perdidos!</span></p>
+
+        </div>
+        <div id="formularioManual" class="container flex">
+            <div id="cadastroManual" class="item flex-item-1">
+                <h1> Dados da Empresa</h1>
+
+                <div class="form-group">
+                    <label for="cnpj">CNPJ da empresa:</label>
+                    <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="Digite o CNPJ ..."  maxlength="14" value =''  >
+
+                </div>
+                <div class="form-group">
+                    <label for="nomeFantasia">Nome da Empresa:</label>
+                    <input type="text" onpaste="return false" ondrop="return false" class="form-control" id="nomeFantasia"
+                           name="nomeFantasia" placeholder="Digite o nome ..." required maxlength="100" value=''>
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small> -->
+                </div>
+                <div class="form-group">
+                    <label for="nomeManual">Nome fantasia:</label>
+                    <input type="text" onpaste="return false" ondrop="return false" class="form-control" id="nomeManual"
+                           name="nomeManual" placeholder="Digite o nome fantasia ..." required maxlength="100" value=''>
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small> -->
+                </div>
+                <div class="form-group">
+                    <label for="celular">Telefone:</label>
+                    <input type="text" class="form-control" id="celular" name="celular" placeholder="(00) 00000-0000"  maxlength="11" value ='' >
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email@email.com"  value ='' >
+                </div>
+
+                <div class="form-group">
+                    <label for="preco">Capital Social:</label>
+                    <div id="campo_preco">
+                        <span class="input-group-text" id="cifrao">R$</span><input  onpaste="return false" ondrop="return false" class="form-control" id="preco" name="preco" placeholder="00.00" required maxlength="10" value =''>
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="enderecoManual" class="item flex-item-1">
+                <h1> Endereço da Empresa</h1>
+
+                <div class="form-group">
+                    <label for="cep">CEP:</label>
+                    <input type="text" class="form-control" id="cep" name="cep" placeholder="XX.XXX-XXX"  maxlength="14" value =''  >
+
+                </div>
+                <div class="form-group">
+                    <label for="rua">Rua:</label>
+                    <input type="text" class="form-control" id="rua"
+                           name="rua" placeholder="Nome da Rua ..." required maxlength="100" value=''>
+                </div>
+                <div class="form-group">
+                    <label for="bairroEnumero">Bairro e Número:</label>
+                    <div id="bairroEnumero">
+                        <input  class="form-control" id="bairro" name="bairro" placeholder="Digite o bairro ..."  maxlength="100" value =''  >
+                        <input type="number" class="form-control" id="numero" name="numero" placeholder="Nº:"  value =''  >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nomeManual">Estado:</label>
+                    <input type="text"  class="form-control" id="estado"
+                           name="estado" placeholder=" ..." required maxlength="100" value=''>
+
+                </div>
+                <div class="form-group">
+                    <label for="complemento">Complemento:</label>
+                    <input type="text" class="form-control" id="complemento"
+                           name="complemento" placeholder="Ex: Casa, Apartamento" required maxlength="100" value=''>
+
+                </div>
+                <div class="form-group">
+                    <label for="apelido">Apelido:</label>
+                    <input type="text"  class="form-control" id="apelido"
+                           name="apelido" placeholder="Ex: Principal" required maxlength="100" value=''>
+
+                </div>
+
+                <div id="fim">
+                    <button id="enviar" type="submit" class="btn btn-primary" onclick="CadastrarEmpresaManual()">Cadastrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<footer id="footer" class="page-footer font-small blue" style="border-top: 1px dotted black;">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">Copyright © 2018-2019 :<a
+            href="https://www.linkedin.com/in/brenner-batista-253552171/" style="color: #FF6F00 ; ">Brenner Batista</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script> <!-- altera os ul dentro do menu -->
+
+<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+<script>
+    $(".categoria_produto").select2({
+        placeholder: 'Seleciona uma opção:'
+    });
+
+    $(".subcategoria").select2({
+        placeholder: 'Seleciona uma opção:'
+    });
+
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+        $("#preco").mask('00000000000000.00', {reverse: true}); //reverse true = campos preenchidos de tras para frente!
+        $("#estoque").mask('00000000', {reverse: true});
+        $("#cnpj").mask('00000000000000');
+
+    });
+</script>
+
+</body>
+
+</html>
+

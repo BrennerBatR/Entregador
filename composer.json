@@ -1,0 +1,9 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.0",
+      "ext-mysqli": "*",
+      "ext-mysql": "*",
+      "ext-pdo": "*",
+      "ext-json": "*"
+    }
+}

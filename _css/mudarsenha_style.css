@@ -1,0 +1,121 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+
+body{
+    background-image: url("../_imagens/loginAtual.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
+    font-family: 'Lato', sans-serif;
+} 
+
+#login{
+    
+    background-color: #FFFFFF;
+    border: 10px solid rgb(243, 129, 53);
+    width: 400px;
+    height: auto;
+    margin-top: 15%;
+    margin-bottom: 10%;
+}
+#titulo{
+    font-size: 30px;
+}
+
+#form1{
+    width: 80%;
+    margin: auto;
+    
+}
+
+.form-group input{
+    margin-bottom: 2%;
+}
+
+#submit{
+    background-color: #FF9800;
+    border: #FF9800;
+    border-radius: 5px;
+    color: #FFFFFF;
+    margin-top: 15%;
+    margin-bottom: 7%;
+    
+}
+
+
+
+#carregando{
+    border: 5px solid #FF6F00;
+    width: 300px;
+    height: auto;
+    text-align: center;
+    margin-top: 150px;
+    display: none;
+
+}
+#carregando p{
+    font-size: 19px;
+}
+#carregando span{
+    font-size: 13px;
+    color: #FF3D00;
+}
+#gif{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+@media only screen and (max-width:599px) {
+    #login{
+        width: auto;
+        height: 60%;
+        margin-top:25%;
+    }
+
+    #login h1{
+        margin-bottom: 5%;
+    
+    }
+    #login p{
+        margin-bottom: 5%;
+    }
+    #login input  {
+        height: 10%;
+    
+    }
+    #submit{ 
+        margin-top: 5%;
+    }
+
+}
+
+
+@media only screen and (min-width:600px) and (max-height:500px) {
+    #login{
+        width: auto;
+        height: auto;
+        margin-top:5%;
+        margin-bottom: 10%;
+    }
+
+    #login h1{
+        margin-bottom: 5%;
+    
+    }
+    #login p{
+        margin-bottom: 5%;
+    }
+    #login input  {
+        height: 13%;
+    
+    }
+    #submit{ 
+        margin-top: 5%;
+    }
+
+}
