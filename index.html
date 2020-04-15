@@ -1,38 +1,59 @@
-
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Entregador</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="_css/login.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="_css/login.css"
+    />
     <link rel="icon" href="_imagens/logo_icone.jpg" type="image/x-icon" />
     <script src="_javascript/login.js"></script>
     <script src="jquery-3.3.1.js"></script>
-</head>
+  </head>
 
-<body>
-    <div class="container-fluid" style="position: fixed">
-        <div class="row-fluid d-flex justify-content-center ">
-            <div class="col-xs-1 text-center" id="login" >
-                <form >
-                    <div class="form-group" >
-                        <h1>LOGIN</h1>
-                        <p>Bem-vindo ao Entregador!</p>
-                    </div>
-                    <div class="form-group">                
-                        <input type="email" class="form-control" id="email" name="login" aria-describedby="emailHelp" placeholder="Digite o email">
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" maxlength="15">
-                        <input type="button" class="form-control" id="submit" onclick="cadastrar_empresa()" value="Entrar">
-                        <a id="link" href="esqueceusenha.html" >Esqueceu a senha ?</a>
-                    </div>
-                </form>
-                
+  <body>
+    <div class="container-fluid" style="position: fixed;">
+      <div class="row-fluid d-flex justify-content-center">
+        <div class="col-xs-1 text-center" id="login">
+          <form>
+            <div class="form-group">
+              <h1>LOGIN</h1>
+              <p>Bem-vindo ao Entregador!</p>
             </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="login"
+                aria-describedby="emailHelp"
+                placeholder="Digite o email"
+              />
+              <input
+                type="password"
+                class="form-control"
+                id="senha"
+                name="senha"
+                placeholder="Senha"
+                maxlength="15"
+              />
+              <input
+                type="button"
+                class="form-control"
+                id="submit"
+                onclick="loginUser()"
+                value="Entrar"
+              />
+              <a id="link" href="esqueceusenha.html">Esqueceu a senha ?</a>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
