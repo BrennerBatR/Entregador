@@ -68,7 +68,7 @@ $pedido = <<<PEDIDO
                 </button>
 
                 <!-- <h1 id="tetoh1"> Meus itens</h1> -->
-            <h1 id="pedidosNum">Carregando...</h1>
+            <h1 id="pedidosNum">4 pedidos</h1>
             <h5 id="auxh5">teste</h5>
             </div>
             
@@ -133,10 +133,6 @@ PEDIDO;
 ?>
 <?php
 
-if ($_SESSION["login"] <> null)
     echo $pedido;
-else {
-    echo "Você não tem permissões para acessar essa página, faça o <a href='index.html'>LOGIN!<a>";
-}
 
 ?>

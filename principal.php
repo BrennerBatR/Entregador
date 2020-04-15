@@ -150,10 +150,6 @@ PRINCIPAL;
 
 <?php
 
-if ($_SESSION["login"] <> null && ($categoria == 10 || $categoria == 4))
     echo $principal;
-else {
-    echo "Você não tem permissões para acessar essa página, faça o <a href='index.html'>LOGIN!<a>";
-}
 
 ?>

@@ -49,13 +49,10 @@ else if($categoria == 4){ //imprimo o menu completo + cadastrar usuario
     setInterval(function () {
         let token = '$token';
         let dataatual = moment().format('YYYY-MM-DD');
-        let url = sessionStorage.getItem("url");
-         $.ajax({
-        type: 'GET',
-        url: url + '/count_pedidos/0/'+ dataatual,
-        headers: {
-            "token":token,},
-        success: function (data) {
+        let data = {
+            qtd : 2
+        }
+
                let num = data.qtd;
                document.getElementById("num_pedidos").innerHTML = num;  
                document.getElementById("num_pedidos").name = num;  
@@ -73,8 +70,6 @@ else if($categoria == 4){ //imprimo o menu completo + cadastrar usuario
                        // document.getElementById("num_pedidos").name = data[1];     
                       }
                  
-            }
-        });
     }, 3000); //d
     </script>
 
@@ -159,15 +154,12 @@ else{ //imprimo o menu so de pedidos
     $menu = <<<FUNCIONARIO
     <script>
     setInterval(function () {
+        let data = {
+            "qtd" :4
+        }
         let token = '$token';
         let dataatual = moment().format('YYYY-MM-DD');
-        let url = sessionStorage.getItem("url");
-         $.ajax({
-        type: 'GET',
-        url: url + '/count_pedidos/0/'+ dataatual,
-        headers: {
-            "token":token,},
-        success: function (data) {
+   
                let num = data.qtd;
                document.getElementById("num_pedidos").innerHTML = num;  
                document.getElementById("num_pedidos").name = num;  
@@ -185,8 +177,6 @@ else{ //imprimo o menu so de pedidos
                        // document.getElementById("num_pedidos").name = data[1];     
                       }
                  
-            }
-        });
     }, 3000); //d
     </script>
     <nav id="sidebar" class="active">

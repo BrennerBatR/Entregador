@@ -14,7 +14,7 @@ function loginUser() {
   insereSession(data);
 }
 function insereSession(data) {
-  console.log("DATA", data);
+  /*   console.log("DADOS", data);
   let token = data["token"];
   let categoria = data["data"].categoria;
   let nome = data["data"].nome;
@@ -24,13 +24,14 @@ function insereSession(data) {
 
   sessionStorage.setItem("EMP_id", EMP_id);
   sessionStorage.setItem("token", token);
-  sessionStorage.setItem("url", url);
+  sessionStorage.setItem("url", url); */
 
-  if (categoria < 4) {
-    location.href = "pedidos.php"; //mudar para pedidos.php
-  } else if (categoria === 10) {
+  sessionStorage.setItem("login", "url");
+  /*  if (categoria < 4) {  */
+  location.href = "pedidos.php"; //mudar para pedidos.php
+  /*  } else if (categoria === 10) {
     location.href = "empresas.php";
   } else {
     location.href = "principal.php";
-  }
+  } */
 }
